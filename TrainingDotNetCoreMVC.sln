@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingDotNetCoreMVC", "TrainingDotNetCoreMVC.csproj", "{2BFE2D9C-2D3D-4861-91EC-ACFA6AF99BD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingDotNetCoreMVC", "TrainingDotNetCoreMVC.csproj", "{2BFE2D9C-2D3D-4861-91EC-ACFA6AF99BD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
