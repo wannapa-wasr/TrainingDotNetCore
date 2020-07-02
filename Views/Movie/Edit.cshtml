@@ -1,7 +1,7 @@
 ﻿@model TrainingDotNetCoreMVC.Models.MovieModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
 @section Styles
@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
-@using (Html.BeginForm("create", "movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("edit", "movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         @Html.LabelFor(model => model.title, "ชื่อภาพยนตร์")
@@ -52,7 +52,10 @@
         </label>
     </div>
     <div class=form-group>
-        <input onclick="return validateOnSubmit()" type="submit" value="Create" class="btn btn-primary" />
+        <img src="@Url.Content(Model.coverImg)" class="img-responsive" />
+    </div>
+    <div class="form-group">
+        <input onclick="return validateOnSubmit()" type="submit" value="Update" class="btn btn-primary" />
     </div>
 }
 
@@ -67,10 +70,6 @@
             });
         });
         function validateOnSubmit() {
-            if (!$('#fileUpload').val()) {
-                $('span[data-valmsg-for="errFileUpload"]').text('The file upload is required.');
-            }
-
             if (!$('#duration').val()) {
                 $('span[data-valmsg-for="errDuration"]').text('The duration is required.');
             }
