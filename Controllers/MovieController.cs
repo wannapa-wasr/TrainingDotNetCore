@@ -29,14 +29,17 @@ namespace TrainingDotNetCoreMVC.Controllers
         }
 
         [HttpPost]
+        // Insert data to database and Validation Form
         public async Task<IActionResult> Create(MovieModel model, IFormFile fileUpload)
         {
+            // Validate duration
             if (model.duration < 1)
             {
                 ModelState.AddModelError("errDuration", "The duration field is required.");
                 return View();
             }
 
+            // Validate picture or fileUpload
             if (fileUpload == null)
             {
                 ModelState.AddModelError("errFileUpload", "The file upload field is required.");
@@ -70,6 +73,16 @@ namespace TrainingDotNetCoreMVC.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        [HttpPost]
+        // Delete data to database
+        public ActionResult Delete(int id)
+        {
+            MovieModel movie = db.Movie.Find(id);
+            db.Movie.Remove(movie);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }
